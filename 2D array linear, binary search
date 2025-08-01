@@ -1,0 +1,61 @@
+public class Search2dArray{
+    public static boolean linearSearch2d(int[][] arr, int key){
+        for(int i = 0; i<arr.length;i++){
+            for(int j=0;j<arr[i].length;j++){
+                if(arr[i][j]==key){
+                    System.out.println("linear search at index"+i+j);
+                    return true;
+                }
+            }
+        }
+        System.out.println("not found");
+        return false;
+    }
+    
+    public static boolean binarySearch2d(int[][] arr, int key){
+        int rows= arr.length;
+        int cols = arr[0].length;
+        int start =0;
+        int end = rows*cols-1;
+        
+        while(start<=end){
+            int mid = (start+end)/2;
+            int row = mid / cols;
+            int col = mid%cols;
+            int midVal = arr[row][col];
+            
+            
+            if(midVal == key){
+                System.out.println("element found");
+                return true;
+            }else if(midVal < key ){
+                start = mid +1;
+            }else{
+                end = mid-1;
+            }
+        }
+        System.out.println("not found");
+        return false;
+        
+    }
+
+  
+    public static void main(String[] args) {
+        // Predefined 2D array (sorted row-wise for binary search)
+        int[][] arr = {
+            {1, 3, 5},
+            {7, 9, 11},
+            {13, 15, 17}
+        };
+
+        int key1 = 9;
+        int key2 = 8;
+
+        // Perform searches
+        linearSearch2d(arr, key1);
+        binarySearch2d(arr, key1);
+
+        linearSearch2d(arr, key2);
+        binarySearch2d(arr, key2);
+    }
+}
