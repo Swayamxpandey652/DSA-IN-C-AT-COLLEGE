@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main() {
+    int arr[] = {10, 20, 30, 40, 50};
+
+    // Address of the array (same as &arr[0])
+    printf("Address of array (arr): %f\n", arr);
+
+    // Address of each element
+    for (int i = 0; i < 5; i++) {
+        printf("Address of arr[%d]: %f\n", i, &arr[i]);
+    }
+
+    return 0;
+}
